@@ -8,6 +8,7 @@ execute_process(COMMAND git log -1 --pretty=format:%h
 WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
 OUTPUT_VARIABLE GIT_REVISION)
 
+set(CMAKE_PREFIX_PATH "/usr/local/Cellar/qt/5.11.2/")
 set(CRYPTONOTE_LIB cryptonote)
 
 include_directories(${CMAKE_BINARY_DIR}
@@ -218,7 +219,7 @@ elseif (UNIX)
 
     set(BUILD_PLATFORM MACOSX_BUNDLE)
     set(BUILD_RESOURCES ${APPLICATION_ICON})
-	
+
     GET_TARGET_PROPERTY(QT_LIB_DIR "${Qt5Widgets_LIBRARIES}" LOCATION)
     GET_FILENAME_COMPONENT(QT_LIB_DIR "${QT_LIB_DIR}" PATH)
   else(APPLE)
